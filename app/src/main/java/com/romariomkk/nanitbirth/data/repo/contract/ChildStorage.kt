@@ -1,0 +1,18 @@
+package com.romariomkk.nanitbirth.data.repo.contract
+
+import com.romariomkk.nanitbirth.data.pojo.ChildInfo
+
+interface ChildStorage {
+
+    fun getChild(): ChildInfo
+
+    fun updateChild(child: ChildInfo)
+
+    fun updateChildImageUri(imageUri: String)
+
+    companion object {
+        const val KEY_CHILD_NAME = "key_child_name"
+        const val KEY_CHILD_BIRTH_DATE = "key_child_birth_date"
+        const val KEY_CHILD_IMAGE_URI = "key_child_image_uri"
+    }
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/birthInfoInput">
+
+    <fragment
+        android:id="@+id/birthInfoInput"
+
+        android:label="BirthInfoInput">
+
+        <action
+            android:id="@+id/toCongrats"
+            app:destination="@+id/movieDetail" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/birthCongrats"
+        android:name="com.romariomkk.nanitbirth.ui.birthday.BirthdayFragment"
+        android:label="Birthday"
+        tools:layout="@layout/fragment_birthday" />
+
+</navigation>
