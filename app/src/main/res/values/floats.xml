@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="img_narrow_percent_top" format="float" type="dimen">0.485</item>
+    <item name="img_narrow_percent_bottom" format="float" type="dimen">0.87</item>
+    <item name="img_narrow_percent_start" format="float" type="dimen">0.1</item>
+    <item name="img_narrow_percent_end" format="float" type="dimen">0.9</item>
+
+    <item name="capture_percent_top" format="float" type="dimen">0.525</item>
+    <item name="capture_percent_end" format="float" type="dimen">0.79</item>
+
+    <item name="text_margin_start" format="float" type="dimen">0.2</item>
+    <item name="text_margin_end" format="float" type="dimen">0.8</item>
+
+</resources>

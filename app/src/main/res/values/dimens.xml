@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dp_8">8dp</dimen>
+    <dimen name="dp_14">14dp</dimen>
+    <dimen name="dp_16">16dp</dimen>
+    <dimen name="dp_24">24dp</dimen>
+    <dimen name="dp_36">36dp</dimen>
+
+    <dimen name="padding">12dp</dimen>
+
+    <dimen name="sp_20">20sp</dimen>
+    <dimen name="sp_18">18sp</dimen>
+    <dimen name="sp_16">16sp</dimen>
+    <dimen name="sp_14">14sp</dimen>
+    <dimen name="sp_12">12sp</dimen>
+
+    <dimen name="width_image_large">128dp</dimen>
+    <dimen name="height_image_large">196dp</dimen>
+
+    <dimen name="width_image_medium">112dp</dimen>
+    <dimen name="height_image_medium">160dp</dimen>
+
+    <dimen name="width_image_small">48dp</dimen>
+    <dimen name="height_image_small">72dp</dimen>
+
+    <dimen name="size_rating_view">40dp</dimen>
+</resources>

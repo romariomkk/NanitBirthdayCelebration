@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.romariomkk.nanitbirth.ui.birthday.BirthdayViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.birthday.BirthdayFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clContent"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:uiMode="@{vm.uiMode}"
+                android:src="@{vm.child.imageUri}"
+                app:layout_constraintBottom_toBottomOf="@id/imgBottom"
+                app:layout_constraintEnd_toEndOf="@id/imgEnd"
+                app:layout_constraintStart_toStartOf="@id/imgStart"
+                app:layout_constraintTop_toTopOf="@id/imgTop"
+                tools:src="@drawable/photo_me" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/imgTop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="@dimen/img_narrow_percent_top" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/imgBottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="@dimen/img_narrow_percent_bottom" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/imgStart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="@dimen/img_narrow_percent_start" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/imgEnd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="@dimen/img_narrow_percent_end" />
+
+            <ImageView
+                android:id="@+id/fgTopic"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@null"
+                android:scaleType="fitXY"
+                android:src="@{vm.uiMode}"
+                tools:src="@drawable/android_elephant_popup" />
+
+            <TextView
+                android:id="@+id/tvBirthNameTitle"
+                style="@style/Birthday.BirthTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_8"
+                app:birthStateText="@{vm.child}"
+                app:layout_constraintBottom_toTopOf="@id/ivBirth"
+                app:layout_constraintEnd_toEndOf="@id/txtEnd"
+                app:layout_constraintStart_toStartOf="@id/txtStart"
+                tools:text="Today Cristiana Ronaldo is" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/txtStart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="@dimen/text_margin_start" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/txtEnd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="@dimen/text_margin_end" />
+
+            <ImageView
+                android:id="@+id/ivBirth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@null"
+                app:birth="@{vm.child}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.15"
+                tools:src="@drawable/num_12" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dp_16"
+                android:contentDescription="@null"
+                android:src="@drawable/left_swirls"
+                app:layout_constraintBottom_toBottomOf="@id/ivBirth"
+                app:layout_constraintEnd_toStartOf="@id/ivBirth"
+                app:layout_constraintTop_toTopOf="@id/ivBirth" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_16"
+                android:contentDescription="@null"
+                android:src="@drawable/right_swirls"
+                app:layout_constraintBottom_toBottomOf="@id/ivBirth"
+                app:layout_constraintStart_toEndOf="@id/ivBirth"
+                app:layout_constraintTop_toTopOf="@id/ivBirth" />
+
+            <TextView
+                android:id="@+id/tvBirthSubtitle"
+                style="@style/Birthday.BirthTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                app:birthDurationText="@{vm.child}"
+                app:layout_constraintEnd_toEndOf="@id/txtEnd"
+                app:layout_constraintStart_toStartOf="@id/txtStart"
+                app:layout_constraintTop_toBottomOf="@id/ivBirth"
+                tools:text="months old" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageButton
+            android:id="@+id/btnClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_16"
+            android:background="@null"
+            android:contentDescription="@null"
+            android:src="@drawable/btn_close_blue"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/btnCapture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:contentDescription="@null"
+            android:src="@{vm.uiMode}"
+            app:layout_constraintEnd_toEndOf="@id/captureEnd"
+            app:layout_constraintTop_toTopOf="@id/captureTop"
+            tools:src="@drawable/camera_icon_yellow" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/captureTop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="@dimen/capture_percent_top" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/captureEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="@dimen/capture_percent_end" />
+
+        <TextView
+            android:id="@+id/tvShare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_36"
+            android:background="@drawable/btn_share"
+            app:layout_constraintBottom_toTopOf="@id/shareBottom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tvFake"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="@id/tvShare"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvShare" />
+
+        <TextView
+            style="@style/Birthday.ShareButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/ic_share_pink"
+            android:drawablePadding="@dimen/dp_8"
+            android:text="@string/title_share"
+            app:layout_constraintBaseline_toBaselineOf="@id/tvFake"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/shareBottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="@dimen/img_narrow_percent_top" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

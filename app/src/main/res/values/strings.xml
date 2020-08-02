@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">NanitBirth</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_share">Share the news</string>
+    <string name="title_birthday_statement">%s%s is </string>
+    <string name="today">Today</string>
+
+    <plurals name="years">
+        <item quantity="zero">years</item>
+        <item quantity="one">year</item>
+        <item quantity="two">years</item>
+        <item quantity="few">years</item>
+        <item quantity="many">years</item>
+    </plurals>
+
+    <plurals name="months">
+        <item quantity="zero">months</item>
+        <item quantity="one">month</item>
+        <item quantity="two">months</item>
+        <item quantity="few">months</item>
+        <item quantity="many">months</item>
+    </plurals>
+</resources>

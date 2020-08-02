@@ -1,0 +1,83 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'dagger.hilt.android.plugin'
+apply plugin: 'androidx.navigation.safeargs'
+
+android {
+    compileSdkVersion 29
+    defaultConfig {
+        applicationId "com.romariomkk.nanitbirth"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    dataBinding {
+        enabled = true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+androidExtensions {
+    experimental = true
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    //design
+    implementation "androidx.appcompat:appcompat:$appCompat"
+    implementation "androidx.constraintlayout:constraintlayout:$constrLayout"
+    implementation "com.google.android.material:material:$supportVer"
+    //core
+    implementation "androidx.core:core-ktx:$ktx"
+    implementation "androidx.fragment:fragment-ktx:$fragmentKtx"
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycleVer"
+    implementation "androidx.legacy:legacy-support-v4:$legacyVer"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$viewModelKtxVer"
+    //glide
+    implementation "com.github.bumptech.glide:glide:$glideVer"
+    kapt "com.github.bumptech.glide:compiler:$glideVer"
+    //tests
+    testImplementation "junit:junit:$junit"
+    testImplementation "io.mockk:mockk:$mockkVersion"
+    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoVersion"
+    testImplementation "org.mockito:mockito-inline:$mockitoInline"
+    testImplementation "androidx.arch.core:core-testing:2.1.0"
+    //navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:$navVer"
+    implementation "androidx.navigation:navigation-ui-ktx:$navVer"
+    //hilt
+    implementation "com.google.dagger:hilt-android:$hiltVer"
+    kapt "com.google.dagger:hilt-android-compiler:$hiltVer"
+    implementation "androidx.hilt:hilt-lifecycle-viewmodel:$hiltKtxVer"
+    kaptAndroidTest "androidx.hilt:hilt-compiler:$hiltKtxVer"
+    kapt "androidx.hilt:hilt-compiler:$hiltKtxVer"
+    //logs
+    implementation "com.jakewharton.timber:timber:$timberVer"
+    //circle
+    implementation "de.hdodenhof:circleimageview:$circleIvVer"
+    //time
+    implementation "net.danlew:android.joda:$jodaTimeVer"
+    //imgPicking
+    implementation "com.github.jkwiecien:EasyImage:$easyImageVer"
+    //permissions
+    implementation "gun0912.ted:tedpermission:$tedPermissionVer"
+}
