@@ -17,17 +17,15 @@ class PrefsStorageImpl(
         return ChildInfo(name, birthDate, imageUri)
     }
 
-    override fun updateChild(child: ChildInfo) {
-        sharedPrefs.edit().apply {
-            putString(ChildStorage.KEY_CHILD_NAME, child.name)
-            putString(ChildStorage.KEY_CHILD_BIRTH_DATE, child.birthDate)
-            putString(ChildStorage.KEY_CHILD_IMAGE_URI, child.imageUri)
-        }.commit()
+    override fun updateChildImageUri(imageUri: String) {
+        sharedPrefs.edit().putString(ChildStorage.KEY_CHILD_IMAGE_URI, imageUri).commit()
     }
 
-    override fun updateChildImageUri(imageUri: String) {
-        sharedPrefs.edit()
-            .putString(ChildStorage.KEY_CHILD_IMAGE_URI, imageUri)
-            .commit()
+    override fun updateBirthDate(birthDate: String) {
+        sharedPrefs.edit().putString(ChildStorage.KEY_CHILD_BIRTH_DATE, birthDate).commit()
+    }
+
+    override fun updateName(name: String) {
+        sharedPrefs.edit().putString(ChildStorage.KEY_CHILD_NAME, name).commit()
     }
 }

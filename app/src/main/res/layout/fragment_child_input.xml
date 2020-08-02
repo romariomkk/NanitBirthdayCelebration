@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.romariomkk.nanitbirth.ui.input.ChildInfoInputViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:context=".ui.input.ChildInfoInputFragment">
+
+            <DatePicker
+                android:id="@+id/dpBirth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" />
+
+            <TextView
+                android:id="@+id/tvBirthDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="@{vm.birthDate}"
+                android:textColor="@android:color/black"
+                tools:text="26=03=2019" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                android:hint="Name"
+                android:text="@={vm.name}" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnPicker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                android:background="@android:color/darker_gray"
+                android:text="@string/title_pick_image" />
+
+            <TextView
+                android:id="@+id/tvImageUri"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="@{vm.imageUri}"
+                android:textColor="@android:color/black"
+                tools:text="Picked imget;;?uri" />
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="@{vm.isCongratsEnabled}"
+                android:text="GO TO CONGRATS" />
+
+        </LinearLayout>
+
+    </ScrollView>
+</layout>

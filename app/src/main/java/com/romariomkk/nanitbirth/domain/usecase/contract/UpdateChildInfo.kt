@@ -1,8 +1,12 @@
 package com.romariomkk.nanitbirth.domain.usecase.contract
 
-import com.romariomkk.nanitbirth.domain.pojo.Child
+import java.util.*
 
 interface UpdateChildInfo {
 
-    fun execute(child: Child)
+    fun updateName(name: String)
+
+    fun updateImageUri(imageUri: String)
+
+    fun updateBirthDate(birthDate: Date)
 }

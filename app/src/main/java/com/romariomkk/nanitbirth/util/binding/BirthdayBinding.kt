@@ -10,8 +10,10 @@ import com.romariomkk.nanitbirth.R
 import com.romariomkk.nanitbirth.config.GlideApp
 import com.romariomkk.nanitbirth.domain.pojo.ChildLife
 import com.romariomkk.nanitbirth.ui.birthday.BirthdayUiState
+import com.romariomkk.nanitbirth.util.Keys.asString
 import de.hdodenhof.circleimageview.CircleImageView
 import timber.log.Timber
+import java.util.*
 
 object BirthdayBinding {
 
@@ -111,5 +113,11 @@ object BirthdayBinding {
         }
 
         text = resources.getQuantityString(pluralsId, number)
+    }
+
+    @JvmStatic
+    @BindingAdapter("android:text")
+    fun TextView.bindBirthDate(date: Date) {
+        text = date.asString()
     }
 }

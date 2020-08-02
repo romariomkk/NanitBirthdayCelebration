@@ -5,10 +5,7 @@ import android.content.Intent
 import androidx.fragment.app.Fragment
 import com.gun0912.tedpermission.TedPermission
 import com.romariomkk.nanitbirth.util.permission.PermissionUtils
-import pl.aprilapps.easyphotopicker.DefaultCallback
-import pl.aprilapps.easyphotopicker.EasyImage
-import pl.aprilapps.easyphotopicker.MediaFile
-import pl.aprilapps.easyphotopicker.MediaSource
+import pl.aprilapps.easyphotopicker.*
 import java.io.File
 import java.lang.ref.WeakReference
 
@@ -19,15 +16,15 @@ class ImagePickingDelegate<T>(fragment: T)
 
     private val easyImage by lazy {
         EasyImage.Builder(fragment.requireContext())
+            .setChooserType(ChooserType.CAMERA_AND_GALLERY)
             .allowMultiple(false)
             .build()
     }
 
-    fun pickImageFromCamera() {
+    fun openChooser() {
         frag.get()?.let {
-
             if (TedPermission.isGranted(it.requireContext(), *CAMERA_PERMISSIONS)) {
-                easyImage.openCameraForImage(it)
+                easyImage.openChooser(it)
                 return
             }
 
@@ -35,23 +32,7 @@ class ImagePickingDelegate<T>(fragment: T)
                 it.requireContext(),
                 *CAMERA_PERMISSIONS,
                 onGranted = {
-                    easyImage.openCameraForImage(it)
-                })
-        }
-    }
-
-    fun pickImageFromGallery() {
-        frag.get()?.let {
-
-            if (TedPermission.isGranted(it.requireContext(), *GALLERY_PERMISSIONS)) {
-                easyImage.openGallery(it)
-                return
-            }
-
-            PermissionUtils.checkPermissionsAndExecute(it.requireContext(),
-                *GALLERY_PERMISSIONS,
-                onGranted = {
-                    easyImage.openGallery(it)
+                    easyImage.openChooser(it)
                 })
         }
     }

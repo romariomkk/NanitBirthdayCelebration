@@ -5,6 +5,7 @@
     <string name="title_share">Share the news</string>
     <string name="title_birthday_statement">%s%s is </string>
     <string name="today">Today</string>
+    <string name="title_pick_image">Pick image</string>
 
     <plurals name="years">
         <item quantity="zero">years</item>

@@ -33,7 +33,8 @@ object Keys {
 
     @JvmStatic
     fun isToday(date: String): Boolean {
-        val birth = DateTime.parse(date, DateTimeFormat.forPattern(BIRTH_DATE_FORMAT)).withTime(0, 0, 0, 0)
+        val birth =
+            DateTime.parse(date, DateTimeFormat.forPattern(BIRTH_DATE_FORMAT)).withTime(0, 0, 0, 0)
         val now = DateTime.now().withTime(0, 0, 0, 0)
         return birth.toLocalDate().compareTo(now.toLocalDate()) == 0
     }

@@ -7,8 +7,9 @@
 
     <fragment
         android:id="@+id/birthInfoInput"
-
-        android:label="BirthInfoInput">
+        android:name="com.romariomkk.nanitbirth.ui.input.ChildInfoInputFragment"
+        android:label="BirthInfoInput"
+        tools:layout="@layout/fragment_child_input">
 
         <action
             android:id="@+id/toCongrats"

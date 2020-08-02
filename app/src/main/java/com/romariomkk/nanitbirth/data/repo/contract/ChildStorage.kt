@@ -6,9 +6,11 @@ interface ChildStorage {
 
     fun getChild(): ChildInfo
 
-    fun updateChild(child: ChildInfo)
-
     fun updateChildImageUri(imageUri: String)
+
+    fun updateBirthDate(birthDate: String)
+
+    fun updateName(name: String)
 
     companion object {
         const val KEY_CHILD_NAME = "key_child_name"

@@ -1,16 +1,16 @@
 package com.romariomkk.nanitbirth.ui.birthday
 
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import com.romariomkk.nanitbirth.domain.pojo.ChildLife
 import com.romariomkk.nanitbirth.domain.usecase.contract.GetChildLifeInfo
-import com.romariomkk.nanitbirth.domain.usecase.contract.UpdateChildImage
+import com.romariomkk.nanitbirth.domain.usecase.contract.UpdateChildInfo
 import com.romariomkk.nanitbirth.ui.base.AbsViewModel
 import java.util.concurrent.ThreadLocalRandom
-import javax.inject.Inject
 
-class BirthdayViewModel @Inject constructor(
-    private val updateChildImage: UpdateChildImage,
-    private val getChildInfo: GetChildLifeInfo
+class BirthdayViewModel @ViewModelInject constructor(
+    private val updateChildInfo: UpdateChildInfo,
+    private val getChildLifeInfo: GetChildLifeInfo
 ): AbsViewModel() {
 
     val uiMode = MutableLiveData<BirthdayUiState>()
@@ -21,12 +21,13 @@ class BirthdayViewModel @Inject constructor(
     override fun onAttached() {
         super.onAttached()
         uiMode.value = getRandomUiState()
-        child.value = getChildInfo.execute()
+        child.value = getChildLifeInfo.execute()
     }
 
     private fun getRandomUiState() = BirthdayUiState.all[random.nextInt(BirthdayUiState.all.size)]
 
-    private fun updateChildImage(imageUri: String) {
-        updateChildImage.execute(imageUri)
+    fun updateChildImage(imageUri: String) {
+        updateChildInfo.updateImageUri(imageUri)
+        child.value = getChildLifeInfo.execute()
     }
 }
