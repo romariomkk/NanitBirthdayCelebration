@@ -10,9 +10,8 @@ class UpdateChildInfoImpl @Inject constructor(
     private val childStorage: ChildStorage
 ): UpdateChildInfo {
 
-    override fun updateName(name: String) {
+    override fun updateName(name: String) =
         childStorage.updateName(name)
-    }
 
     override fun updateImageUri(imageUri: String) =
         childStorage.updateChildImageUri(imageUri)

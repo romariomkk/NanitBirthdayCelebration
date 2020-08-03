@@ -4,6 +4,6 @@ import java.util.*
 
 data class Child(
     val name: String,
-    val birthDate: Date,
+    val birthDate: Date?,
     val imageUri: String
 )

@@ -8,10 +8,11 @@ import com.romariomkk.nanitbirth.databinding.FragmentBirthdayBinding
 import com.romariomkk.nanitbirth.ui.base.AbsFragment
 import com.romariomkk.nanitbirth.util.ShareUtil.shareImage
 import com.romariomkk.nanitbirth.util.ext.takeScreenShot
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_birthday.*
 import java.io.File
 
-
+@AndroidEntryPoint
 class BirthdayFragment : AbsFragment<FragmentBirthdayBinding, BirthdayViewModel>() {
 
     override val layoutRes: Int
@@ -23,6 +24,8 @@ class BirthdayFragment : AbsFragment<FragmentBirthdayBinding, BirthdayViewModel>
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.lifecycleOwner = viewLifecycleOwner
+        binding.vm = viewModel
+        
         btnClose.setOnClickListener {
             navController.popBackStack()
         }

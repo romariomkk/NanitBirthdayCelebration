@@ -13,7 +13,7 @@
 
         <action
             android:id="@+id/toCongrats"
-            app:destination="@+id/movieDetail" />
+            app:destination="@id/birthCongrats" />
     </fragment>
 
     <fragment

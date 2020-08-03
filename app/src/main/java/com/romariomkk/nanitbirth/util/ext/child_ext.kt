@@ -11,5 +11,5 @@ fun ChildInfo.toChild() =
 
 fun ChildInfo.toChildLife(): ChildLife {
     val (years, months) = Keys.getFullMonths(birthDate)
-    return ChildLife(name, Keys.isToday(birthDate), years, months, imageUri)
+    return ChildLife(name, Keys.isBirthdayToday(birthDate), years, months, imageUri)
 }

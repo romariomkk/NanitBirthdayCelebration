@@ -107,7 +107,7 @@ object BirthdayBinding {
                 number = childLife.remainingMonths
             }
             else -> {
-                pluralsId = R.plurals.months
+                pluralsId = R.plurals.years
                 number = childLife.fullYears
             }
         }
@@ -117,7 +117,7 @@ object BirthdayBinding {
 
     @JvmStatic
     @BindingAdapter("android:text")
-    fun TextView.bindBirthDate(date: Date) {
-        text = date.asString()
+    fun TextView.bindBirthDate(date: Date?) {
+        text = date?.asString()
     }
 }

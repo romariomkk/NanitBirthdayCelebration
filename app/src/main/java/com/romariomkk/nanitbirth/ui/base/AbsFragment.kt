@@ -17,16 +17,23 @@ abstract class AbsFragment<DB : ViewDataBinding, VM : AbsViewModel>
     : Fragment(), ImagePickingDelegate.Requester {
 
     protected lateinit var binding: DB
-    protected val viewModel: VM by lazy {
-        ViewModelProvider(this).get(vmClass)
-            .apply { onAttached() }
-    }
+    protected lateinit var viewModel: VM
 
     abstract val layoutRes: Int
     abstract val vmClass: Class<VM>
 
     protected open val navController by lazy {
         findNavController()
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        initVM()
+    }
+
+    private fun initVM() {
+        viewModel = ViewModelProvider(this).get(vmClass)
+            .apply { onAttached() }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

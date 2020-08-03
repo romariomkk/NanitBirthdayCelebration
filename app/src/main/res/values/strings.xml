@@ -13,6 +13,7 @@
         <item quantity="two">years</item>
         <item quantity="few">years</item>
         <item quantity="many">years</item>
+        <item quantity="other">years</item>
     </plurals>
 
     <plurals name="months">
@@ -21,5 +22,6 @@
         <item quantity="two">months</item>
         <item quantity="few">months</item>
         <item quantity="many">months</item>
+        <item quantity="other">months</item>
     </plurals>
 </resources>

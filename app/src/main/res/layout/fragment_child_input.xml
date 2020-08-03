@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -19,11 +20,12 @@
             android:orientation="vertical"
             tools:context=".ui.input.ChildInfoInputFragment">
 
-            <DatePicker
+            <com.romariomkk.nanitbirth.widget.CustomDatePicker
                 android:id="@+id/dpBirth"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center" />
+                android:layout_gravity="center"
+                app:date="@={vm.birthDate}"/>
 
             <TextView
                 android:id="@+id/tvBirthDate"
@@ -61,6 +63,7 @@
 
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnCongrats"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:enabled="@{vm.isCongratsEnabled}"
