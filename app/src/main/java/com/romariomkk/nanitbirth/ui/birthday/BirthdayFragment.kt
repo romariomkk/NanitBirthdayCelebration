@@ -25,7 +25,7 @@ class BirthdayFragment : AbsFragment<FragmentBirthdayBinding, BirthdayViewModel>
         super.onViewCreated(view, savedInstanceState)
         binding.lifecycleOwner = viewLifecycleOwner
         binding.vm = viewModel
-        
+
         btnClose.setOnClickListener {
             navController.popBackStack()
         }

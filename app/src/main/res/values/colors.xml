@@ -11,4 +11,8 @@
     <color name="colorDetailBackground">#B000</color>
     <color name="text_blue">#3B4965</color>
     <color name="share_pink">#E57B7C</color>
+
+    <color name="bg_light_elephant">#F8EDCE</color>
+    <color name="bg_light_fox">#BAE4D7</color>
+    <color name="bg_light_pelican">#D2EDF3</color>
 </resources>

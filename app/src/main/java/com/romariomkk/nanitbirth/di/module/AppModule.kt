@@ -9,10 +9,11 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
 import javax.inject.Singleton
 
-@InstallIn(ApplicationComponent::class)
 @Module(includes = [
     RepositoryModule::class,
-    UseCaseModule::class])
+    UseCaseModule::class,
+    InitializerModule::class])
+@InstallIn(ApplicationComponent::class)
 internal class AppModule {
 
     @Singleton

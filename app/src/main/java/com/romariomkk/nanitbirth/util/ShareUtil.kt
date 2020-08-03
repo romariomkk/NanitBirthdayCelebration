@@ -13,6 +13,6 @@ object ShareUtil {
             .putExtra(Intent.EXTRA_STREAM, Uri.parse(imageUri))
             .addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
             .setType("image/png")
-        this.startActivity(intent)
+        this.startActivity(Intent.createChooser(intent, "Share image"))
     }
 }

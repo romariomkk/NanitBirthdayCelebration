@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.updateLayoutParams
 import com.romariomkk.nanitbirth.R
+import com.romariomkk.nanitbirth.util.ext.setFullScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -27,5 +28,10 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
             }
             return@setOnApplyWindowInsetsListener insets.consumeSystemWindowInsets()
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        setFullScreen()
     }
 }

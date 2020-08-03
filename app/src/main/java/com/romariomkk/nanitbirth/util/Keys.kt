@@ -1,5 +1,6 @@
 package com.romariomkk.nanitbirth.util
 
+import android.view.View
 import org.joda.time.DateTime
 import org.joda.time.Months
 import org.joda.time.Years
@@ -56,4 +57,9 @@ object Keys {
         }
 
     }
+
+    const val FULLSCREEN_FLAGS =
+        View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or
+                View.SYSTEM_UI_FLAG_FULLSCREEN or
+                View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
 }

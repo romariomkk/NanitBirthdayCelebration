@@ -1,12 +1,13 @@
 package com.romariomkk.nanitbirth.util.ext
 
+import android.content.ContentValues
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas
-import android.os.Environment
+import android.provider.MediaStore
 import android.view.View
 import timber.log.Timber
-import java.io.*
+import java.io.OutputStream
 import java.util.*
 
 
@@ -18,26 +19,22 @@ fun View.takeScreenShot(): String? {
 }
 
 fun Bitmap.save(context: Context, filename: String): String? {
-    val path = context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)?.absolutePath + "/" + filename
-    val imageFile = File(path)
-    var out: OutputStream? = null
+    val values = ContentValues().apply {
+        put(MediaStore.Images.Media.TITLE, filename)
+        put(MediaStore.Images.Media.MIME_TYPE, "image/jpeg")
+    }
+    val uri = context.contentResolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values)
 
-    try {
-        out = FileOutputStream(imageFile)
-        this.compress(Bitmap.CompressFormat.JPEG, 90, out)
-        out.flush()
-        return path
-    } catch (e: FileNotFoundException) {
-        Timber.e(e)
-        return null
-    } catch (e: IOException) {
-        Timber.e(e)
-        return null
-    } finally {
+    val outStream: OutputStream?
+    uri?.let {
         try {
-            out?.close()
-        } catch (exc: Exception) {
-            return null
+            outStream = context.contentResolver.openOutputStream(uri)
+            this.compress(Bitmap.CompressFormat.JPEG, 100, outStream)
+            outStream?.close()
+        } catch (e: Exception) {
+            Timber.e(e)
         }
     }
+
+    return uri.toString()
 }
