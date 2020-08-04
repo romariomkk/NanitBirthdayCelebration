@@ -1,4 +1,4 @@
-package com.romariomkk.nanitbirth.data.repo.contract
+package com.romariomkk.nanitbirth.data.storage.contract
 
 import com.romariomkk.nanitbirth.data.pojo.ChildInfo
 

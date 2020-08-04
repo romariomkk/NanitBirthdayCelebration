@@ -1,9 +1,11 @@
-package com.romariomkk.nanitbirth.data.repo
+package com.romariomkk.nanitbirth.data.storage
 
 import android.annotation.SuppressLint
 import android.content.SharedPreferences
 import com.romariomkk.nanitbirth.data.pojo.ChildInfo
-import com.romariomkk.nanitbirth.data.repo.contract.ChildStorage
+import com.romariomkk.nanitbirth.data.storage.contract.ChildStorage
+import timber.log.Timber
+import java.io.File
 
 @SuppressLint("ApplySharedPref")
 class PrefsStorageImpl(
@@ -13,7 +15,13 @@ class PrefsStorageImpl(
     override fun getChild(): ChildInfo {
         val name = sharedPrefs.getString(ChildStorage.KEY_CHILD_NAME, "")!!
         val birthDate = sharedPrefs.getString(ChildStorage.KEY_CHILD_BIRTH_DATE, "")!!
-        val imageUri = sharedPrefs.getString(ChildStorage.KEY_CHILD_IMAGE_URI, "")!!
+        var imageUri = sharedPrefs.getString(ChildStorage.KEY_CHILD_IMAGE_URI, "")!!
+
+        if (imageUri.isNotEmpty() && !File(imageUri).exists()) {
+            Timber.e("Removed reference to $imageUri")
+            sharedPrefs.edit().remove(ChildStorage.KEY_CHILD_IMAGE_URI).commit()
+            imageUri = ""
+        }
         return ChildInfo(name, birthDate, imageUri)
     }
 

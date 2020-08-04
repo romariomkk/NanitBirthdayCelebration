@@ -1,6 +1,6 @@
 package com.romariomkk.nanitbirth.domain.usecase
 
-import com.romariomkk.nanitbirth.data.repo.contract.ChildStorage
+import com.romariomkk.nanitbirth.data.storage.contract.ChildStorage
 import com.romariomkk.nanitbirth.domain.usecase.contract.UpdateChildInfo
 import com.romariomkk.nanitbirth.util.DateUtils.asString
 import java.util.*

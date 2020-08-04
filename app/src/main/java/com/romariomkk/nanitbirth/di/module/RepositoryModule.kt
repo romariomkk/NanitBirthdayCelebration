@@ -2,8 +2,8 @@ package com.romariomkk.nanitbirth.di.module
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.romariomkk.nanitbirth.data.repo.PrefsStorageImpl
-import com.romariomkk.nanitbirth.data.repo.contract.ChildStorage
+import com.romariomkk.nanitbirth.data.storage.PrefsStorageImpl
+import com.romariomkk.nanitbirth.data.storage.contract.ChildStorage
 import com.romariomkk.nanitbirth.util.Keys
 import dagger.Module
 import dagger.Provides
