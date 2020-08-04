@@ -46,16 +46,14 @@ class ChildInfoInputViewModel @ViewModelInject constructor(
     }
 
     private val nameObserver = Observer<String> {
-        if (!it.isNullOrEmpty() && !it.isNullOrBlank()) {
-            updateChildInfo.updateName(it)
-            updateCongratsAvailability()
-        }
+        updateChildInfo.updateName(it)
+        updateCongratsAvailability()
     }
     private val birthDateObserver = Observer<Date> { date ->
         date?.let {
             updateChildInfo.updateBirthDate(it)
-            updateCongratsAvailability()
         }
+        updateCongratsAvailability()
     }
     private val imageUriObserver = Observer<String> {
         if (!it.isNullOrEmpty() && !it.isNullOrBlank()) {
@@ -75,7 +73,7 @@ class ChildInfoInputViewModel @ViewModelInject constructor(
     }
 
 
-    inner class Observer: LifecycleObserver {
+    inner class Observer : LifecycleObserver {
         @OnLifecycleEvent(Lifecycle.Event.ON_START)
         fun onStart() {
             requestChildInfo()
