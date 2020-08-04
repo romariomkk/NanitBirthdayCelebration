@@ -36,6 +36,7 @@ class ChildInfoInputViewModel @ViewModelInject constructor(
 
     fun updateChildImage(imageUri: String) {
         updateChildInfo.updateImageUri(imageUri)
+        requestChildInfo()
     }
 
     private fun requestChildInfo() {
