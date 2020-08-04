@@ -112,7 +112,7 @@ object BirthdayBinding {
             }
         }
 
-        text = resources.getQuantityString(pluralsId, number)
+        text = String.format(context.getString(R.string.age_format), resources.getQuantityString(pluralsId, number))
     }
 
     @JvmStatic

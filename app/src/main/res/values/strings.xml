@@ -7,6 +7,8 @@
     <string name="today">Today</string>
     <string name="title_pick_image">Pick image</string>
 
+    <string name="age_format">%s old</string>
+
     <plurals name="years">
         <item quantity="zero">years</item>
         <item quantity="one">year</item>
